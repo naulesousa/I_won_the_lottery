@@ -25,11 +25,16 @@ class MainActivity : AppCompatActivity() {
         // Opcão 3: bloco de código que será disparado pelo onClickListener
 
         btnGenerate.setOnClickListener {
-            Log.i("Teste", "Botao clicado") }
+            val text = editText.text.toString()
+            numberGenerator()
+        }
+    }
+
+    private fun numberGenerator(text: String, txtResult: TextView) {
 
     }
 
-    val buttonClickListener = View.OnClickListener { Log.i("Teste", "Botao clicado") }
+//    val buttonClickListener = View.OnClickListener { Log.i("Teste", "Botao clicado") }
 
     // Opção 1: XML
 //    fun buttonClicked(view: View) {
