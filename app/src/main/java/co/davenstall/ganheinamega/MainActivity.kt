@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,12 +27,16 @@ class MainActivity : AppCompatActivity() {
 
         btnGenerate.setOnClickListener {
             val text = editText.text.toString()
-            numberGenerator()
+            numberGenerator(text, txtResult)
         }
     }
 
     private fun numberGenerator(text: String, txtResult: TextView) {
+        if (text.isNotEmpty()) {
 
+        } else {
+            Toast.makeText(this, "Informe um número entre 6 e 15", Toast.LENGTH_LONG).show()
+        }
     }
 
 //    val buttonClickListener = View.OnClickListener { Log.i("Teste", "Botao clicado") }
