@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import java.util.Random
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +36,20 @@ class MainActivity : AppCompatActivity() {
         if (text.isNotEmpty()) {
             val qtd = text.toInt()
             if (qtd >=6 && qtd <=15) {
-                
+                val numbers = mutableSetOf<Int>()
+                val random = Random()
+
+                while (true) {
+                    val number = random.nextInt(60)
+                    numbers.add(number + 1)
+
+                    if (numbers.size == qtd) {
+                        break
+                    }
+                }
+
+                txtResult.text = numbers.joinToString { " - " }
+
             } else {
                Toast.makeText(this, "Informe um número entre 6 e 15", Toast.LENGTH_LONG).show()
             }
