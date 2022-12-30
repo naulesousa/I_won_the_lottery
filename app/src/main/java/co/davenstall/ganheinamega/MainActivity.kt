@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-}
+
 
 //    val buttonClickListener = View.OnClickListener { Log.i("Teste", "Botao clicado") }
 
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 //    }
 
 
-}
+
 
 
 
