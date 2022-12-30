@@ -33,34 +33,38 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun numberGenerator(text: String, txtResult: TextView) {
-        if (text.isNotEmpty()) {
-            val qtd = text.toInt()
-            if (qtd >=6 && qtd <=15) {
-                val numbers = mutableSetOf<Int>()
-                val random = Random()
-
-                while (true) {
-                    val number = random.nextInt(60)
-                    numbers.add(number + 1)
-
-                    if (numbers.size == qtd) {
-                        break
-                    }
-                }
-
-                txtResult.text = numbers.joinToString { " - " }
-
-            } else {
-               Toast.makeText(this, "Informe um número entre 6 e 15", Toast.LENGTH_LONG).show()
-            }
-        } else {
+        if (text.isEmpty()) {
             Toast.makeText(this, "Informe um número entre 6 e 15", Toast.LENGTH_LONG).show()
+            return
         }
+
+        val qtd = text.toInt()
+
+        if (qtd < 6 && qtd > 15) {
+            Toast.makeText(this, "Informe um número entre 6 e 15", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        val numbers = mutableSetOf<Int>()
+        val random = Random()
+
+        while (true) {
+            val number = random.nextInt(60)
+            numbers.add(number + 1)
+            if (numbers.size == qtd) {
+                break
+            }
+        }
+
+        txtResult.text = numbers.joinToString { " - " }
+
     }
+}
+}
 
 //    val buttonClickListener = View.OnClickListener { Log.i("Teste", "Botao clicado") }
 
-    // Opção 1: XML
+// Opção 1: XML
 //    fun buttonClicked(view: View) {
 //        Log.i("Teste", "Botao clicado")
 //    }
