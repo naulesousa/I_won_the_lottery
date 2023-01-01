@@ -27,10 +27,11 @@ class MainActivity : AppCompatActivity() {
 
         prefs = getSharedPreferences("db", Context.MODE_PRIVATE)
         val result = prefs.getString("result", null)
-        if (result != null) {
-            txtResult.text = "Última aposta: $result"
-        }
 
+        /*if (result != null) {
+            txtResult.text = "Última aposta: $result"
+        }*/
+        result?.let { txtResult.text = "Última aposta: $it" }
 
         // Opção 2: Criar variável que seja do tipo View.OnClickListener (interface)
 
